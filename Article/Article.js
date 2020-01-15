@@ -88,27 +88,61 @@ const data = [
   }
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+// Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+//   <div class="article">
+//     <h2>{title of the article}</h2>
+//     <p class="date">{date of the article}</p>
 
-    {three separate paragraph elements}
+//     {three separate paragraph elements}
 
-    <span class='expandButton'></span>
-  </div>
+//     <span class='expandButton'></span>
+//   </div>
 
-  Hint: You will need to use createElement more than once here!
+//   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+//   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+function createData(title, date, first, second, third){
+  const card = document.createElement('div');
+  const cardHeader = document.createElement('h2');
+  const cardContent = document.createElement('p');
+  const cardOne = document.createElement('p');
+  const cardTwo = document.createElement('p');
+  const cardThree = document.createElement('p');
+  const cardExpand = document.createElement('span');
 
-  Step 3: return the entire component.
+  card.append(cardHeader);
+  card.append(cardContent);
+  card.append(cardOne);
+  card.append(cardTwo);
+  card.append(cardThree);
+  card.append(cardExpand);
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  card.classList.add('article');
+  cardContent.classList.add('date');
+  cardExpand.classList.add('expandButton');
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+  cardHeader.textContent = title;
+  cardContent.textContent = date;
+  cardOne.textContent = first;
+  cardTwo.textContent = second;
+  cardThree.textContent = third;
+  cardExpand.textContent = "Click here to Expand";
+  
+//   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+cardExpand.addEventListener('click', event => {
+card.classList.toggle('article-open');
+});
+//   Step 3: return the entire component.
 
-*/
+return card;
+}
+//   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+
+const articles = document.querySelector('.articles');
+data.forEach(d => {
+  articles.append(createData(d.title, d.date, d.first, d.second, d.third));
+});
+
+//   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
