@@ -103,7 +103,7 @@ const data = [
 
 //   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
-function createData(title, date, first, second, third){
+function createData(title, date, firstParagraph, secondParagraph, thirdParagraph){
   const card = document.createElement('div');
   const cardHeader = document.createElement('h2');
   const cardContent = document.createElement('p');
@@ -125,9 +125,9 @@ function createData(title, date, first, second, third){
 
   cardHeader.textContent = title;
   cardContent.textContent = date;
-  cardOne.textContent = first;
-  cardTwo.textContent = second;
-  cardThree.textContent = third;
+  cardOne.textContent = firstParagraph;
+  cardTwo.textContent = secondParagraph;
+  cardThree.textContent = thirdParagraph;
   cardExpand.textContent = "Click here to Expand";
   
 //   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
@@ -142,7 +142,7 @@ return card;
 
 const articles = document.querySelector('.articles');
 data.forEach(d => {
-  articles.append(createData(d.title, d.date, d.first, d.second, d.third));
+  articles.append(createData(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph));
 });
 
 //   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
