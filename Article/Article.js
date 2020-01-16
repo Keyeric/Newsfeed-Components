@@ -113,20 +113,21 @@ const data = [
 //   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
 function createData(title, date, firstParagraph, secondParagraph, thirdParagraph){
-  const card = document.createElement('div');
-  const cardHeader = document.createElement('h2');
-  const cardContent = document.createElement('p');
-  const cardOne = document.createElement('p');
-  const cardTwo = document.createElement('p');
-  const cardThree = document.createElement('p');
-  const cardExpand = document.createElement('span');
+  const
+   card = document.createElement('div'),
+   cardHeader = document.createElement('h2'),
+   cardContent = document.createElement('p'),
+   cardOne = document.createElement('p'),
+   cardTwo = document.createElement('p'),
+   cardThree = document.createElement('p'),
+   cardExpand = document.createElement('span');
 
-  card.append(cardHeader);
-  card.append(cardContent);
-  card.append(cardOne);
-  card.append(cardTwo);
-  card.append(cardThree);
-  card.append(cardExpand);
+  card.append(cardHeader,cardContent,cardOne,cardTwo,cardThree,cardExpand);
+  // card.append(cardContent);
+  // card.append(cardOne);
+  // card.append(cardTwo);
+  // card.append(cardThree);
+  // card.append(cardExpand);
 
   card.classList.add('article');
   cardContent.classList.add('date');
